@@ -1,16 +1,16 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Box from './Box';
 
 interface Props {
   children: ReactNode,
+  isCentered?: boolean;
   hasBorder?: boolean;
 }
 
-const HomepageSectionWrapperBox = styled.div`
+const HomepageSectionWrapperBox = styled.div<{ isCentered?: boolean; }>`
   position: relative;
-  text-align: center;
 
   &:before {
     content: "";
@@ -24,10 +24,16 @@ const HomepageSectionWrapperBox = styled.div`
   }
 `;
 
-export default function HomepageSection({ children, hasBorder = true }: Props) {
+export default function HomepageSection({
+  children,
+  isCentered = false,
+  hasBorder = true
+}: Props) {
   return (
-    <HomepageSectionWrapperBox>
-      <Box border={hasBorder ? ["bottom"] : []} padding={{ top: 3, bottom: 3 }}>
+    <HomepageSectionWrapperBox isCentered={isCentered}>
+      <Box
+        border={hasBorder ? ["bottom"] : []}
+        padding={{ top: 3, bottom: 3 }}>
         {children}
       </Box>
     </HomepageSectionWrapperBox>

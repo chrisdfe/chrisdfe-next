@@ -13,12 +13,14 @@ interface Props {
   border?: DirectionList;
   margin?: SpacingDirectionMap;
   padding?: SpacingDirectionMap;
+  textAlign?: string;
 }
 
 interface WrapperProps {
   border: DirectionList;
   margin: SpacingDirectionMap;
   padding: SpacingDirectionMap;
+  textAlign?: string;
 }
 
 const hasDirection = (directionList: DirectionList, direction: Direction) => directionList.includes(direction);
@@ -80,9 +82,20 @@ const Wrapper = styled.div<WrapperProps>`
   ${props => getPaddingDefs(props.padding)}
 `;
 
-export default function Box({ className, border = [], margin = {}, padding = {}, children }: Props) {
+export default function Box({
+  className,
+  border = [],
+  margin = {},
+  padding = {},
+  children
+}: Props) {
   return (
-    <Wrapper className={className} border={border} margin={margin} padding={padding}>
+    <Wrapper
+      className={className}
+      border={border}
+      margin={margin}
+      padding={padding}
+    >
       {children}
     </Wrapper>
   );

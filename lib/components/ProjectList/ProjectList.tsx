@@ -4,6 +4,12 @@ import { projects } from 'lib/data/projects';
 
 import { Container, Column } from '../Grid';
 import Box from '../Box';
+import HomepageSection from '../HomepageSection';
+import ProjectPageSection from '../ProjectPageSection';
+
+const Wrapper = styled.div`
+  text-align: left;
+`;
 
 const Title = styled.h3`
   margin-top: 0;
@@ -13,19 +19,29 @@ const Title = styled.h3`
 const Description = styled.p`
 `;
 
-export default function ProjectList() {
+interface Props {
+  title: string;
+}
+
+export default function ProjectList({ title }: Props) {
   return (
     <div>
+      <h2>{title}</h2>
 
       {projects.map((project, index) => (
-        <Box key={project.name} margin={{ bottom: index < projects.length - 1 ? 3 : 0 }}>
-          <Title>
-            <Link href={`projects/${project.slug}`}>{project.name}</Link>
-          </Title>
-          <Description>{project.description}</Description>
-        </Box>
+        <ProjectPageSection key={index} gutterContent={<div>test</div>}>
+          <Box key={project.name} margin={{ bottom: index < projects.length - 1 ? 3 : 0 }}>
+            <Wrapper>
+              <Title>
+                <Link href={`projects/${project.slug}`}>{project.name}</Link>
+              </Title>
+
+              <Description>{project.description}</Description>
+            </Wrapper>
+          </Box>
+        </ProjectPageSection>
       ))}
 
-    </div>
+    </div >
   );
 }

@@ -22,9 +22,11 @@ import { DefaultTheme } from 'styled-components';
 const CHARCOL = "#333333";
 const TOMATO = "#591925";
 
-const BACKGROUND = "#ffffff";
+// const BACKGROUND = "#ffffff";
+const BACKGROUND = "#edffff";
 // const FOREGROUND = "#333333";
-const FOREGROUND = "#2b071c";
+// const FOREGROUND = "#2b071c";
+const FOREGROUND = "#044732";
 // const FOREGROUND = "#74875d";
 
 const theme: DefaultTheme = {

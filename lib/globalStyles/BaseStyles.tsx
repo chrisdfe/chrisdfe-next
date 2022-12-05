@@ -12,25 +12,28 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
   }
 
-  h1,
-  h2,
-  h3 {
+  h1, .h1,
+  h2, .h2,
+  h3, .h3 {
     line-height: 1.2;
-    margin: 0;
+    margin: 0 0 1em;
     font-weight: 400;
     color: ${props => props.theme.palette.textColor.heading.primary};
     font-family: 'EB Garamond', serif;
   }
 
-  h1 {
-    font-size: 2.4rem;
+  h1,
+  .h1 {
+    font-size: 3.6rem;
   }
 
-  h2 {
-    font-size: 1.5rem;
+  h2,
+  .h2 {
+    font-size: 2.6rem;
   }
 
-  h3 {
+  h3,
+  .h3 {
     font-size: 1.1rem;
     font-weight: 600;
   }

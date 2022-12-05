@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import { Container, Column } from 'lib/components/Grid';
 
@@ -46,20 +46,22 @@ const Home: NextPage = () => {
         <Column>
 
           <HomepageSection hasBorder={false}>
-            <Box margin={{ bottom: 4 }}>
-              <h1>
+            <Box margin={{ bottom: 2 }}>
+              <h1 className="h2">
                 Christopher Ferris is a Designer & Front End Developer that lives and works in
                 Seattle, WA.
               </h1>
             </Box>
 
-
-            <VertialLine />
-            <HorizontalLinks links={SOCIAL_LINKS} />
+            {/* <VertialLine /> */}
           </HomepageSection>
 
+          <Box margin={{ top: 0, bottom: 3 }}>
+            <HorizontalLinks links={SOCIAL_LINKS} />
+          </Box>
+
           <HomepageSection hasBorder={false}>
-            <ProjectList />
+            <ProjectList title="Projects" />
           </HomepageSection>
 
         </Column>

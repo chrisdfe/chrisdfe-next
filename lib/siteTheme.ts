@@ -30,13 +30,10 @@ const FOREGROUND = "#044732";
 // const FOREGROUND = "#74875d";
 
 const theme: DefaultTheme = {
-  spacing: {
-    1: "1rem",
-    2: "2rem",
-    3: "3rem",
-    4: "4rem",
-    5: "5rem",
-  },
+  spacing: [...new Array(10)].reduce((acc, _, index) =>
+    ({ ...acc, [index + 1]: `${index + 1}rem` }),
+    {}
+  ),
   palette: {
     backgroundColor: BACKGROUND,
     textColor: {
@@ -57,7 +54,7 @@ const theme: DefaultTheme = {
         underline: FOREGROUND
       }
     },
-    borderColor: FOREGROUND,
+    borderColor: FOREGROUND + "44",
   }
 };
 

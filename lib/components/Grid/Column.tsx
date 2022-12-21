@@ -4,17 +4,21 @@ import styled from 'styled-components';
 import { COLUMN_SPAN, GUTTER } from './constants';
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
   span?: number,
 }
 
 interface WrapperProps {
-  span: number
+  span: number;
 }
 
 const Wrapper = styled.div<WrapperProps>`
+display: block;
   width: ${props => (props.span / COLUMN_SPAN) * 100}%;
   padding: 0 ${GUTTER};
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 1;
 `;
 
 function Column({ children, span = 12 }: Props) {

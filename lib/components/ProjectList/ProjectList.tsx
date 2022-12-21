@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { projects } from 'lib/data/projects';
+import type { Project } from 'lib/types/Project';
 
-import { Container, Column } from '../Grid';
-import Box from '../Box';
-import HomepageSection from '../HomepageSection';
-import ProjectPageSection from '../ProjectPageSection';
+import Box from 'lib/components/Box';
+import Section from 'lib/components/Section';
+import { Container, Column } from 'lib/components/Grid';
+import HorizontalLinks from 'lib/components/HorizontalLinks';
 
 const Wrapper = styled.div`
   text-align: left;
@@ -17,31 +18,66 @@ const Title = styled.h3`
 `;
 
 const Description = styled.p`
+  font-size: 15px;
 `;
 
-interface Props {
-  title: string;
+interface ProjectListViewProps {
+  project: Project;
 }
 
-export default function ProjectList({ title }: Props) {
+const ProjectListView = ({ project }: ProjectListViewProps) => (
+  <Box margin={{ bottom: 5 }}>
+    <Wrapper>
+      <Title>
+        {/* <Link href={`projects/${project.slug}`}> */}
+        {project.name}
+        {/* </Link> */}
+      </Title>
+
+      <Description>{project.description}</Description>
+
+      {project.links && (
+        <Box margin={{ top: 2 }}>
+          <HorizontalLinks links={project.links} />
+        </Box>
+      )}
+    </Wrapper>
+  </Box>
+);
+
+const isGameProject = (project: Project) => project.name.includes("Game");
+
+export default function ProjectList() {
+  const gameProject = projects.find(isGameProject);
+  const filteredProjects = projects.filter(project => !isGameProject(project));
+
   return (
-    <div>
-      <h2>{title}</h2>
+    <Section
+      gutterContent={<h3>02. Personal Projects</h3>}
+      hasBorder={false}
+      description={"blah blah blah"}
+    >
 
-      {projects.map((project, index) => (
-        <ProjectPageSection key={index} gutterContent={<div>test</div>}>
-          <Box key={project.name} margin={{ bottom: index < projects.length - 1 ? 3 : 0 }}>
-            <Wrapper>
-              <Title>
-                <Link href={`projects/${project.slug}`}>{project.name}</Link>
-              </Title>
+      <Container>
+        {filteredProjects.map((project, index) => (
+          <Column
+            key={index}
+            span={4}>
+            <ProjectListView project={project} />
+          </Column>
+        ))}
+      </Container>
 
-              <Description>{project.description}</Description>
-            </Wrapper>
-          </Box>
-        </ProjectPageSection>
-      ))}
+      {gameProject && (
+        <Container>
+          <Column span={12}>
+            <Box>
+              <ProjectListView project={gameProject} />
+            </Box>
+          </Column>
+        </Container>
+      )}
 
-    </div >
+    </Section>
   );
 }

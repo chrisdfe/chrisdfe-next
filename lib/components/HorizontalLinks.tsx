@@ -27,7 +27,7 @@ const HorizontalLinksWrapper = styled.div`
   li {
     display: inline-block;
     list-style-type: none;
-    margin-right: 1.4rem;
+    margin-right: 2.4rem;
     padding-bottom: 1rem;
 
     &:after {
@@ -40,16 +40,16 @@ export default function HorizontalLinks({ links }: Props) {
   return (
     <HorizontalLinksWrapper>
       <ul>
-        {links.map(socialLink => (
-          <li key={socialLink.title}>
+        {links.map(links => (
+          <li key={links.title}>
             <a
-              href={socialLink.href}
-              {...(socialLink.openInNewTab !== false ? {
+              href={links.href}
+              {...(links.openInNewTab !== false ? {
                 target: '_blank',
                 rel: "noreferrer"
               } : {})}
             >
-              {socialLink.title}
+              {links.title}
             </a>
           </li>
         ))}

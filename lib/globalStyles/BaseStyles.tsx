@@ -10,6 +10,8 @@ const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.palette.textColor.body.primary};
     font-family: 'Anonymous Pro', monospace;
     font-weight: 400;
+    padding: 0;
+    margin: 0;
   }
 
   h1, .h1,
@@ -20,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     color: ${props => props.theme.palette.textColor.heading.primary};
     font-family: 'EB Garamond', serif;
+    letter-spacing: 0.2px;
   }
 
   h1,
@@ -34,8 +37,8 @@ const GlobalStyles = createGlobalStyle`
 
   h3,
   .h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    /* font-weight: 600; */
   }
 
   p {

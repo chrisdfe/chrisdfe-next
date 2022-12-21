@@ -6,7 +6,6 @@ interface Props {
   children: ReactNode;
 }
 
-
 export default function Page({ children }: Props) {
   return (
     <Layout>

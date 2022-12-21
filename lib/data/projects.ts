@@ -58,16 +58,41 @@ export const projects = createProjects([
     description: "A tiny showcase app",
     tools: ["Vue.js", "styled-components", "node.js"],
     skills: ['UI/UX Design', 'Front End Development'],
+    links: [
+      {
+        title: "live",
+        href: "http://poke-pod.herokuapp.com/",
+      },
+      {
+        title: "repo",
+        href: "https://github.com/chrisdfe/pokepod",
+      },
+    ],
     blocks: []
   },
   {
-    name: "sweaterparrot",
+    name: "Ziggy",
     type: "personal",
-    description: "An ongoing personal art project",
-    tools: ['Cinema4D', 'Adobe Illustrator'],
+    description: "An experimental MIDI sequencer made with Vue.js",
+    tools: ["Vue.js"],
+    blocks: []
+  },
+  {
+    name: "Unannounced Game",
+    type: "personal",
+    description: "Release date, title, and most other things about this game TBA",
+    tools: ["Unity", "C#", "Cinema4D"],
     skills: ['UI/UX Design', 'Front End Development'],
     blocks: []
   },
+  // {
+  //   name: "sweaterparrot",
+  //   type: "personal",
+  //   description: "An ongoing personal art project",
+  //   tools: ['Cinema4D', 'Adobe Illustrator'],
+  //   skills: ['UI/UX Design', 'Front End Development'],
+  //   blocks: []
+  // },
 ]);
 
 export const getProjectFromSlug = (slug: string) => projects.find(project => project.slug === slug);

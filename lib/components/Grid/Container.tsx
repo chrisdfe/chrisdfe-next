@@ -14,17 +14,24 @@ interface WrapperProps {
 
 const Wrapper = styled.div<WrapperProps>`
   max-width: ${props => props.width == 'narrow' ? "700px" : "1400px"};
-  padding: 0;
+  padding: 0 ${GUTTER};
   margin: 0 auto;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+  flex-shrink: 1;
 `;
 
 const Inner = styled.div`
-  display: block;
   margin: 0 -${GUTTER};
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
 `;
 
 function Container({ width = 'regular', children }: Props) {

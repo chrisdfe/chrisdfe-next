@@ -18,7 +18,7 @@ const createProject = (projectInput: ProjectInput): Project => {
 const createProjects = (projectInputs: ProjectInput[]): Project[] =>
   projectInputs.map(createProject);
 
-export const featuredProject = createProject(
+export const designProject = createProject(
   {
     name: "Valerie Madison Fine Jewelry",
     type: "freelance",

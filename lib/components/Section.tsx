@@ -35,7 +35,7 @@ const GutterContent = styled.div<GutterContentProps>`
 `;
 
 const MainContent = styled.div`
-margin-top: 1rem;
+  margin-top: 1.3rem;
 `;
 
 interface WrapperProps {
@@ -44,8 +44,8 @@ interface WrapperProps {
 
 const Wrapper = styled.div<WrapperProps>`
   position: relative;
-  padding: ${SECTION_PADDING_REM}rem 0;
-  background: ${({ background, theme }) => background && background == 'primary' ? theme.palette.backgroundColor : '#fff'};
+  padding: ${SECTION_PADDING_REM}rem 0 0;
+  background: ${({ background, theme }) => background && background == 'primary' ? theme.primary.palette.backgroundColor : '#fff'};
 `;
 
 interface InnerWrapperProps { }

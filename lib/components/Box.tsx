@@ -28,19 +28,19 @@ const hasDirection = (directionList: DirectionList, direction: Direction) => dir
 function getBorderDefs(borderDirectionList: DirectionList) {
   return css`
     ${hasDirection(borderDirectionList, 'top') && css`
-      border-top: 1px solid ${props => props.theme.palette.borderColor};
+      border-top: 2px solid ${props => props.theme.primary.palette.borderColor};
     `};
 
     ${hasDirection(borderDirectionList, 'right') && css`
-      border-right: 1px solid ${props => props.theme.palette.borderColor};
+      border-right: 2px solid ${props => props.theme.primary.palette.borderColor};
     `};
 
     ${hasDirection(borderDirectionList, 'bottom') && css`
-      border-bottom: 1px solid ${props => props.theme.palette.borderColor};
+      border-bottom: 2px solid ${props => props.theme.primary.palette.borderColor};
     `};
 
     ${hasDirection(borderDirectionList, 'left') && css`
-      border-left: 1px solid ${props => props.theme.palette.borderColor};
+      border-left: 2px solid ${props => props.theme.primary.palette.borderColor};
     `};
   `;
 }

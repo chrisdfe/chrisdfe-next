@@ -19,42 +19,66 @@ import { DefaultTheme } from 'styled-components';
     // linkColor: "#ffd8cc"
 */
 
-const CHARCOL = "#333333";
-const TOMATO = "#591925";
-
 // const BACKGROUND = "#ffffff";
-const BACKGROUND = "#edffff";
+// const BACKGROUND = "#edffff";
 // const FOREGROUND = "#333333";
 // const FOREGROUND = "#2b071c";
-const FOREGROUND = "#044732";
+// const FOREGROUND = "#044732";
 // const FOREGROUND = "#74875d";
+
+// const CHARCOL = "#333333";
+
+// const TOMATO = "#591925";
+const TOMATO = "#5b0e15";
+// const TOMATO = "#ca3a47";
+const WHITE = "#ffffff";
+// const CREAM_PEACH = "#ffded3";
+const CREAM_PEACH = "#fff1ed";
 
 const theme: DefaultTheme = {
   spacing: [...new Array(10)].reduce((acc, _, index) =>
     ({ ...acc, [index + 1]: `${index + 1}rem` }),
     {}
   ),
-  palette: {
-    backgroundColor: BACKGROUND,
-    textColor: {
-      heading: {
-        primary: FOREGROUND
+  primary: {
+    palette: {
+      backgroundColor: CREAM_PEACH,
+      textColor: {
+        heading: TOMATO,
+        body: TOMATO
       },
-      body: {
-        primary: FOREGROUND
+      linkColor: {
+        default: {
+          text: TOMATO + "dd",
+          underline: TOMATO + "dd"
+        },
+        hover: {
+          text: TOMATO,
+          underline: TOMATO
+        }
       },
+      borderColor: TOMATO,
     },
-    linkColor: {
-      default: {
-        text: FOREGROUND,
-        underline: FOREGROUND + "44"
+  },
+  secondary: {
+    palette: {
+      backgroundColor: TOMATO,
+      textColor: {
+        heading: WHITE,
+        body: WHITE
       },
-      hover: {
-        text: FOREGROUND,
-        underline: FOREGROUND
-      }
-    },
-    borderColor: FOREGROUND,
+      linkColor: {
+        default: {
+          text: WHITE,
+          underline: WHITE + "44"
+        },
+        hover: {
+          text: WHITE,
+          underline: WHITE
+        }
+      },
+      borderColor: WHITE,
+    }
   }
 };
 

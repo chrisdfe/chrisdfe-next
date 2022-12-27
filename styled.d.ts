@@ -3,17 +3,12 @@ import 'styled-components';
 export type SpacingMap = { [key: number]: string; };
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    spacing: SpacingMap,
+  export interface ThemeVariant {
     palette: {
       backgroundColor: string;
       textColor: {
-        heading: {
-          primary: string;
-        },
-        body: {
-          primary: string;
-        };
+        heading: string;
+        body: string;
       };
       linkColor: {
         default: {
@@ -27,5 +22,11 @@ declare module 'styled-components' {
       };
       borderColor: string;
     };
+  };
+
+  export interface DefaultTheme {
+    spacing: SpacingMap;
+    primary: ThemeVariant;
+    secondary: ThemeVariant;
   }
 }

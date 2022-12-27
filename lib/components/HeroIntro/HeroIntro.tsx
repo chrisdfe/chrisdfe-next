@@ -28,16 +28,15 @@ const Wrapper = styled.div`
 
 const VerticalLine = styled.div`
   height: ${VERTICAL_LINE_HEIGHT};
-  margin-bottom: 5rem;
 
   &:after {
     content: "";
     display: block;
     animation: 0.8s ease-in-out 0s 1 vertical-line-appear;
-    animation-delay: 0.4s;
+    animation-delay: 1s;
     animation-fill-mode: both;
-    width: 1px;
-    background: ${({ theme }) => theme.palette.borderColor};
+    width: 2px;
+    background: ${({ theme }) => theme.primary.palette.borderColor};
     height: ${VERTICAL_LINE_HEIGHT};
     margin: 0 auto;
   }
@@ -47,21 +46,17 @@ export default function HeroIntro() {
   return (
     <Wrapper>
       <Section hasBorder={false} width="narrow" background="primary">
-        <Box margin={{ top: SECTION_PADDING_REM, bottom: 3 }} textAlign="center">
-          <h1 className="h2">
-            Christopher Ferris is a&nbsp;
-            <a href="#design">Designer</a>,&nbsp;
-            <a href="#illustration">Illustrator</a>, &&nbsp;
-            <a href="#development">Front End Developer</a>&nbsp;
-            that lives in Seattle, WA.
+        <Box margin={{ top: SECTION_PADDING_REM, bottom: 0 }} textAlign="center">
+          <h1>
+            Christopher Ferris is a <a href="#design">Designer</a>, <a href="#illustration">Illustrator</a>, & <a href="#development">Front End Developer</a> that lives in Seattle, WA.
           </h1>
         </Box>
 
         <VerticalLine />
 
-        <Box>
+        {/* <Box>
           <HorizontalLinks links={SOCIAL_LINKS} />
-        </Box>
+        </Box> */}
       </Section>
     </Wrapper>
   );

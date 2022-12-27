@@ -11,7 +11,13 @@ interface Props {
   links: HorizontalLink[];
 }
 
+const OPEN_IN_NEW_TAB_PROPS = {
+  target: '_blank',
+  rel: "noreferrer"
+};
+
 const HorizontalLinksWrapper = styled.div`
+
   ul {
     margin: 0;
     padding: 0;
@@ -19,7 +25,6 @@ const HorizontalLinksWrapper = styled.div`
   }
 
   a {
-    /* letter-spacing: 0.05em; */
     font-weight: 400;
     padding-bottom: 3px;
   }
@@ -27,7 +32,7 @@ const HorizontalLinksWrapper = styled.div`
   li {
     display: inline-block;
     list-style-type: none;
-    margin-right: 2.4rem;
+    margin-right: 1.8rem;
     padding-bottom: 1rem;
 
     &:after {
@@ -44,10 +49,7 @@ export default function HorizontalLinks({ links }: Props) {
           <li key={links.title}>
             <a
               href={links.href}
-              {...(links.openInNewTab !== false ? {
-                target: '_blank',
-                rel: "noreferrer"
-              } : {})}
+              {...(links.openInNewTab !== false ? OPEN_IN_NEW_TAB_PROPS : {})}
             >
               {links.title}
             </a>

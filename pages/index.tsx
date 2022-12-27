@@ -26,8 +26,8 @@ const Home: NextPage = () => {
     <Page>
       <HeroIntro />
       <FeaturedProject />
-      <ProjectList />
       <ArtworkList />
+      <ProjectList />
     </Page>
   );
 };

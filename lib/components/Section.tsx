@@ -6,6 +6,7 @@ import { Container, Column } from "../components/Grid";
 
 interface Props {
   children: ReactNode,
+  background?: 'primary' | 'secondary';
   isCentered?: boolean;
   hasBorder?: boolean;
   gutterContent?: ReactNode;
@@ -17,18 +18,16 @@ interface GutterContentProps {
   height?: string;
 }
 
-export const SECTION_PADDING_REM = 3;
+export const SECTION_PADDING_REM = 5;
 export const GUTTER_CONTENT_WIDTH_REM = 10;
 export const GUTTER_CONTENT_PADDING_REM = 2;
 
 const GutterContent = styled.div<GutterContentProps>`
   display: block;
-  /* align-items: center; */
-  /* justify-content: flex-end; */
   font-size: 14px;
   line-height: 1;
-  /* height: ${props => props.height || "1em"}; */
   text-align: right;
+  flex-grow: 1;
   
   h3 {
     margin: 0;
@@ -36,13 +35,17 @@ const GutterContent = styled.div<GutterContentProps>`
 `;
 
 const MainContent = styled.div`
+margin-top: 1rem;
 `;
 
-interface WrapperProps { }
+interface WrapperProps {
+  background?: 'primary' | 'secondary';
+}
 
 const Wrapper = styled.div<WrapperProps>`
   position: relative;
   padding: ${SECTION_PADDING_REM}rem 0;
+  background: ${({ background, theme }) => background && background == 'primary' ? theme.palette.backgroundColor : '#fff'};
 `;
 
 interface InnerWrapperProps { }
@@ -56,7 +59,7 @@ interface InnerWrapperProps { }
 const Description = styled.p`
   font-size: 17px;
   letter-spacing: 0.1px;
-  margin: 0.4rem 0 3rem;
+  margin: 2rem 0 3rem;
 `;
 
 export default function Section({
@@ -65,10 +68,11 @@ export default function Section({
   hasBorder = true,
   gutterContent,
   description,
+  background,
   width = 'regular'
 }: Props) {
   return (
-    <Wrapper>
+    <Wrapper background={background}>
       <Container width={width}>
         {gutterContent && (
           <Column span={3}>
@@ -81,7 +85,7 @@ export default function Section({
         <Column span={gutterContent ? 9 : 12}>
           <MainContent>
             <Box
-              border={hasBorder ? ["bottom"] : []}
+              border={hasBorder ? ["top"] : []}
               padding={{ top: 0, bottom: 3 }}>
               {description && (
                 <Description>{description}</Description>

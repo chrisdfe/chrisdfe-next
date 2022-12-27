@@ -54,7 +54,7 @@ const theme: DefaultTheme = {
         underline: FOREGROUND
       }
     },
-    borderColor: FOREGROUND + "44",
+    borderColor: FOREGROUND,
   }
 };
 

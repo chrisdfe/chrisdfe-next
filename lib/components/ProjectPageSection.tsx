@@ -18,6 +18,10 @@ interface GutterContentProps {
   height?: string;
 }
 
+const Wrapper = styled.div`
+  background: #fff;
+`;
+
 const GutterContent = styled.div<GutterContentProps>`
   position: absolute;
   display: flex;
@@ -37,14 +41,16 @@ export const GutterContentLine = styled.div`
 
 export default function ProjectPageSection({ children, gutterContent, gutterHeight }: Props) {
   return (
-    <Box padding={{ top: 1, bottom: 1 }}>
-      <WrapperBox>
-        {gutterContent && (
-          <GutterContent height={gutterHeight}>{gutterContent}</GutterContent>
-        )}
+    <Wrapper>
+      <Box padding={{ top: 1, bottom: 1 }}>
+        <WrapperBox>
+          {gutterContent && (
+            <GutterContent height={gutterHeight}>{gutterContent}</GutterContent>
+          )}
 
-        {children && children}
-      </WrapperBox>
-    </Box>
+          {children && children}
+        </WrapperBox>
+      </Box>
+    </Wrapper>
   );
 }

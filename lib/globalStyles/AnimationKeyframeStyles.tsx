@@ -12,6 +12,16 @@ const AnimationKeyframeStyles = createGlobalStyle`
       translateY: 0;
     }
   }
+
+  @keyframes vertical-line-appear {
+    from {
+      height: 0%;
+    }
+    
+    to {
+      height: 100%;
+    }
+  }
 `;
 
 export default AnimationKeyframeStyles;

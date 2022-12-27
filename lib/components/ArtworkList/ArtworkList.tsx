@@ -6,6 +6,7 @@ import { artworks } from 'lib/data/artworks';
 import Box from '../Box';
 import ProjectPageSection from '../ProjectPageSection';
 import Section from 'lib/components/Section';
+import HorzontalLinks from 'lib/components/HorizontalLinks';
 import { Column, Container } from '../Grid';
 
 const Wrapper = styled.div`
@@ -27,10 +28,28 @@ export default function ArtworkList() {
   return (
     <Wrapper>
       <Section
-        gutterContent={<h3>03. sweaterparrot</h3>}
-        hasBorder={false}
+        gutterContent={<h3>02. Illustration</h3>}
         description={"A collection of art that I have made blah blah blah."}
       >
+        <Container>
+          <Column span={12}>
+            <Box margin={{ top: 0, bottom: 3 }}>
+              <HorzontalLinks links={[
+                {
+                  title: "instagram",
+                  href: "https://www.instagram.com/sweaterparrot/",
+                  openInNewTab: true
+                },
+                {
+                  title: "twitter",
+                  href: "https://twitter.com/sweaterparrot",
+                  openInNewTab: true
+                }
+              ]} />
+            </Box>
+          </Column>
+        </Container>
+
         <Container>
           {artworks.map((artwork, index) => (
             <Column span={4} key={artwork.name}>
@@ -47,6 +66,7 @@ export default function ArtworkList() {
               </Box>
             </Column>
           ))}
+
         </Container>
 
       </Section>

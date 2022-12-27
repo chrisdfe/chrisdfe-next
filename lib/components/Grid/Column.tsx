@@ -13,10 +13,11 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-display: block;
+  display: flex;
+  flex-direction: column;
   width: ${props => (props.span / COLUMN_SPAN) * 100}%;
   padding: 0 ${GUTTER};
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 1;
 `;

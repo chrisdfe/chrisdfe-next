@@ -2,7 +2,9 @@ import slugify from 'slugify';
 
 import { ProjectInput, Project } from '../types/Project';
 
-export const getProjectSlugFromName = (name: string) => slugify(name || "", { lower: true });
+export const getProjectSlugFromName = (name: string) =>
+  'projects/' +
+  slugify(name || "", { lower: true });
 
 const createProject = (projectInput: ProjectInput): Project => {
   const slug = getProjectSlugFromName(projectInput.name);
@@ -27,7 +29,7 @@ export const featuredProject = createProject(
       {
         title: "site",
         href: "http://valeriemadison.com"
-      }
+      },
     ],
     blocks: []
   },
@@ -35,7 +37,7 @@ export const featuredProject = createProject(
 
 export const projects = createProjects([
   {
-    name: "OOT Tracker",
+    name: "OoT Tracker",
     type: "personal",
     description: "A personal app for tracking collectables in Ocarina of Time",
     tools: ["React.js", "styled-components", "node.js"],
@@ -75,6 +77,29 @@ export const projects = createProjects([
     type: "personal",
     description: "An experimental MIDI sequencer made with Vue.js",
     tools: ["Vue.js"],
+    links: [
+      {
+        title: "live",
+        href: "http://ziggy-sequencer.herokuapp.com/",
+      },
+      {
+        title: "repo",
+        href: "https://github.com/chrisdfe/ziggy",
+      },
+    ],
+    blocks: []
+  },
+  {
+    name: "treeify-tabbed-file",
+    type: "personal",
+    description: "A small node utility",
+    tools: ["Vue.js"],
+    links: [
+      {
+        title: "repo",
+        href: "https://github.com/chrisdfe/treeify-tabbed-file",
+      },
+    ],
     blocks: []
   },
   {
@@ -85,14 +110,6 @@ export const projects = createProjects([
     skills: ['UI/UX Design', 'Front End Development'],
     blocks: []
   },
-  // {
-  //   name: "sweaterparrot",
-  //   type: "personal",
-  //   description: "An ongoing personal art project",
-  //   tools: ['Cinema4D', 'Adobe Illustrator'],
-  //   skills: ['UI/UX Design', 'Front End Development'],
-  //   blocks: []
-  // },
 ]);
 
 export const getProjectFromSlug = (slug: string) => projects.find(project => project.slug === slug);

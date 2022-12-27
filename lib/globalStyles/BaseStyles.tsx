@@ -37,7 +37,8 @@ const GlobalStyles = createGlobalStyle`
 
   h3,
   .h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.4px;
     /* font-weight: 600; */
   }
 

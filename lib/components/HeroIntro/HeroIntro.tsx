@@ -1,7 +1,10 @@
+import styled from "styled-components";
 import Section from "lib/components/Section";
 import HorizontalLinks from 'lib/components/HorizontalLinks';
 import Box from 'lib/components/Box';
 import { SECTION_PADDING_REM } from 'lib/components/Section';
+
+const VERTICAL_LINE_HEIGHT = "300px";
 
 const SOCIAL_LINKS = [
   {
@@ -19,22 +22,47 @@ const SOCIAL_LINKS = [
   }
 ];
 
+const Wrapper = styled.div`
+  text-align: center;
+`;
+
+const VerticalLine = styled.div`
+  height: ${VERTICAL_LINE_HEIGHT};
+  margin-bottom: 5rem;
+
+  &:after {
+    content: "";
+    display: block;
+    animation: 0.8s ease-in-out 0s 1 vertical-line-appear;
+    animation-delay: 0.4s;
+    animation-fill-mode: both;
+    width: 1px;
+    background: ${({ theme }) => theme.palette.borderColor};
+    height: ${VERTICAL_LINE_HEIGHT};
+    margin: 0 auto;
+  }
+`;
+
 export default function HeroIntro() {
   return (
-    <>
-      <Section hasBorder={false} width="narrow">
-        <Box margin={{ top: SECTION_PADDING_REM, bottom: 5 }}>
+    <Wrapper>
+      <Section hasBorder={false} width="narrow" background="primary">
+        <Box margin={{ top: SECTION_PADDING_REM, bottom: 3 }} textAlign="center">
           <h1 className="h2">
-            Christopher Ferris is a Designer & Front End Developer that lives in Seattle, WA.
+            Christopher Ferris is a&nbsp;
+            <a href="#design">Designer</a>,&nbsp;
+            <a href="#illustration">Illustrator</a>, &&nbsp;
+            <a href="#development">Front End Developer</a>&nbsp;
+            that lives in Seattle, WA.
           </h1>
         </Box>
 
-        {/* <VertialLine /> */}
+        <VerticalLine />
 
         <Box>
           <HorizontalLinks links={SOCIAL_LINKS} />
         </Box>
       </Section>
-    </>
+    </Wrapper>
   );
 }

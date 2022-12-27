@@ -13,7 +13,7 @@ interface WrapperProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  max-width: ${props => props.width == 'narrow' ? "700px" : "1200px"};
+  max-width: ${props => props.width == 'narrow' ? "700px" : "1400px"};
   padding: 0;
   margin: 0 auto;
   display: flex;

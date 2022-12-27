@@ -10,6 +10,13 @@ import HorizontalLinks from 'lib/components/HorizontalLinks';
 
 const Wrapper = styled.div`
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  /* background-color: ${({ theme }) => theme.palette.backgroundColor}; */
+  padding: 1rem 1.4rem;
+  box-sizing: border-box;
 `;
 
 const Title = styled.h3`
@@ -19,6 +26,11 @@ const Title = styled.h3`
 
 const Description = styled.p`
   font-size: 15px;
+  margin-bottom: 3rem;
+`;
+
+const LinksWrapper = styled.div`
+  margin-top: auto;
 `;
 
 interface ProjectListViewProps {
@@ -26,23 +38,21 @@ interface ProjectListViewProps {
 }
 
 const ProjectListView = ({ project }: ProjectListViewProps) => (
-  <Box margin={{ bottom: 5 }}>
-    <Wrapper>
-      <Title>
-        {/* <Link href={`projects/${project.slug}`}> */}
-        {project.name}
-        {/* </Link> */}
-      </Title>
+  <Wrapper>
+    <Title>
+      {/* <Link href={`projects/${project.slug}`}> */}
+      {project.name}
+      {/* </Link> */}
+    </Title>
 
-      <Description>{project.description}</Description>
+    <Description>{project.description}</Description>
 
-      {project.links && (
-        <Box margin={{ top: 2 }}>
-          <HorizontalLinks links={project.links} />
-        </Box>
-      )}
-    </Wrapper>
-  </Box>
+    {project.links && (
+      <LinksWrapper>
+        <HorizontalLinks links={project.links} />
+      </LinksWrapper>
+    )}
+  </Wrapper>
 );
 
 const isGameProject = (project: Project) => project.name.includes("Game");
@@ -53,30 +63,19 @@ export default function ProjectList() {
 
   return (
     <Section
-      gutterContent={<h3>02. Personal Projects</h3>}
-      hasBorder={false}
-      description={"blah blah blah"}
+      gutterContent={<h3>03. Front End Development</h3>}
     >
-
-      <Container>
-        {filteredProjects.map((project, index) => (
-          <Column
-            key={index}
-            span={4}>
-            <ProjectListView project={project} />
-          </Column>
-        ))}
-      </Container>
-
-      {gameProject && (
+      <Box padding={{ top: 2 }}>
         <Container>
-          <Column span={12}>
-            <Box>
-              <ProjectListView project={gameProject} />
-            </Box>
-          </Column>
+          {filteredProjects.map((project, index) => (
+            <Column
+              key={index}
+              span={12}>
+              <ProjectListView project={project} />
+            </Column>
+          ))}
         </Container>
-      )}
+      </Box>
 
     </Section>
   );

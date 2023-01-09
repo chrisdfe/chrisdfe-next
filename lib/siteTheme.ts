@@ -35,11 +35,13 @@ const WHITE = "#ffffff";
 // const CREAM_PEACH = "#ffded3";
 const CREAM_PEACH = "#fff1ed";
 
+const spacing = [...new Array(10)].reduce((acc, _, index) =>
+  ({ ...acc, [index + 1]: `${index + 1}rem` }),
+  {}
+);
+
 const theme: DefaultTheme = {
-  spacing: [...new Array(10)].reduce((acc, _, index) =>
-    ({ ...acc, [index + 1]: `${index + 1}rem` }),
-    {}
-  ),
+  spacing,
   primary: {
     palette: {
       backgroundColor: CREAM_PEACH,

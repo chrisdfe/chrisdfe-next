@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { artworks } from 'lib/data/artworks';
 
 import Box from '../Box';
-import Section from 'lib/components/Section';
+import Section from 'lib/components/Section/Section';
 import HorzontalLinks from 'lib/components/HorizontalLinks';
 import { Column, Container } from '../Grid';
 

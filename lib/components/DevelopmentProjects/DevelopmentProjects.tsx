@@ -4,7 +4,7 @@ import { projects } from 'lib/data/projects';
 import type { Project } from 'lib/types/Project';
 
 import Box from 'lib/components/Box';
-import Section from 'lib/components/Section';
+import Section from 'lib/components/Section/Section';
 import { Container, Column } from 'lib/components/Grid';
 import HorizontalLinks from 'lib/components/HorizontalLinks';
 

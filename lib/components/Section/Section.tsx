@@ -1,12 +1,16 @@
+import theme from 'lib/siteTheme';
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-import Box from './Box';
-import { Container, Column } from "../components/Grid";
+import Box from '../Box';
+import { Container, Column } from "../Grid";
+
+import Wrapper from './Wrapper';
+import { BackgroundProp } from './types';
 
 interface Props {
   children: ReactNode,
-  background?: 'primary' | 'secondary';
+  background?: BackgroundProp;
   isCentered?: boolean;
   hasBorder?: boolean;
   gutterContent?: ReactNode;
@@ -17,10 +21,6 @@ interface Props {
 interface GutterContentProps {
   height?: string;
 }
-
-export const SECTION_PADDING_REM = 5;
-export const GUTTER_CONTENT_WIDTH_REM = 10;
-export const GUTTER_CONTENT_PADDING_REM = 2;
 
 const GutterContent = styled.div<GutterContentProps>`
   display: block;
@@ -37,24 +37,6 @@ const GutterContent = styled.div<GutterContentProps>`
 const MainContent = styled.div`
   margin-top: 1.3rem;
 `;
-
-interface WrapperProps {
-  background?: 'primary' | 'secondary';
-}
-
-const Wrapper = styled.div<WrapperProps>`
-  position: relative;
-  padding: ${SECTION_PADDING_REM}rem 0 0;
-  background: ${({ background, theme }) => background && background == 'primary' ? theme.primary.palette.backgroundColor : '#fff'};
-`;
-
-interface InnerWrapperProps { }
-
-// const InnerWrapper = styled.div<InnerWrapperProps>`
-//   position: relative;
-//   display: flex;
-//   flex-grow: 1;
-// `;
 
 const Description = styled.p`
   font-size: 17px;

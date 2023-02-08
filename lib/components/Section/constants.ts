@@ -1,3 +1,0 @@
-export const SECTION_PADDING_REM = 5;
-export const GUTTER_CONTENT_WIDTH_REM = 10;
-export const GUTTER_CONTENT_PADDING_REM = 2;

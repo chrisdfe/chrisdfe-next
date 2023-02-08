@@ -17,12 +17,12 @@ const GlobalStyles = createGlobalStyle`
   h1, .h1,
   h2, .h2,
   h3, .h3 {
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0 0 1em;
     font-weight: 400;
     color: ${props => props.theme.primary.palette.textColor.heading};
     font-family: 'EB Garamond', serif;
-    letter-spacing: 0.2px;
+    letter-spacing: -0.2px;
   }
 
   h1,
@@ -82,4 +82,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export default GlobalStyles;;;;;
+export default GlobalStyles;

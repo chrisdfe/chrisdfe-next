@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import Section from "lib/components/Section/Section";
-import HorizontalLinks from 'lib/components/HorizontalLinks';
-import Box from 'lib/components/Box';
-import { SECTION_PADDING_REM } from 'lib/components/Section/constants';
+import Image from 'next/image';
 
-import bgImage from 'public/images/art/281.png';
+import { Container, Column } from '../Grid';
 
-const VERTICAL_LINE_HEIGHT = "300px";
+const VERTICAL_LINE_HEIGHT = "100px";
 
 const SOCIAL_LINKS = [
   {
@@ -25,17 +22,7 @@ const SOCIAL_LINKS = [
 ];
 
 const Wrapper = styled.div`
-  text-align: center;
-  background-color: #111e1e;
-  background-image: url(${bgImage.src});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 80vh;
-  color: #fff;
-  h1, a {
-    color: #fff;
-  }
+  padding: 10rem 0;
 `;
 
 const VerticalLine = styled.div`
@@ -54,23 +41,28 @@ const VerticalLine = styled.div`
   }
 `;
 
+const Inner = styled.div`
+border-bottom: 1px solid ${props => props.theme.primary.palette.borderColor};
+`;
+
 export default function HeroIntro() {
   return (
     <Wrapper>
-      <Section background="transparent" hasBorder={false}>
-        <Box
-          margin={{ top: SECTION_PADDING_REM, bottom: 0 }} textAlign="center">
+      <Container>
+        <Column span={6}>
           <h1>
-            Christopher Ferris is a <a href="#design">Designer</a>, <a href="#illustration">Illustrator</a>, & <a href="#development">Front End Developer</a> that lives in Seattle, WA.
+            Christopher Ferris is a Designer, Illustrator, & Front End Developer that lives in Seattle, WA.
           </h1>
-        </Box>
-
-        <VerticalLine />
-
-        {/* <Box>
-          <HorizontalLinks links={SOCIAL_LINKS} />
-        </Box> */}
-      </Section>
+        </Column>
+        <Column span={6}>
+          <Image
+            src="/images/art/281.png"
+            alt="waterfall"
+            width={500}
+            height={500}
+          ></Image>
+        </Column>
+      </Container>
     </Wrapper>
   );
 }

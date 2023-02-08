@@ -21,7 +21,7 @@ const createProjects = (projectInputs: ProjectInput[]): Project[] =>
 export const designProject = createProject(
   {
     name: "Valerie Madison Fine Jewelry",
-    type: "freelance",
+    type: "client",
     description: "Redesigning and rebuilding valeriemadison.com",
     tools: ['Shopify', 'Liquid', 'SCSS', 'Typescript', 'UI Design', 'Design Systems', "Adobe Illustrator/Photoshop/XD"],
     skills: ['UI/UX Design', 'Front End Development'],
@@ -36,6 +36,25 @@ export const designProject = createProject(
 );
 
 export const projects = createProjects([
+  designProject,
+  {
+    name: "sweaterparrot",
+    type: "personal",
+    description: "personal art & illustration",
+    tools: ["Cinama4D", "Illustrator", "Photoshop"],
+    skills: ['art'],
+    links: [
+      {
+        title: "instagram",
+        href: "https://instagram.com/sweaterparrot",
+      },
+      {
+        title: "twitter",
+        href: "https://twitter.com/sweaterparrot",
+      },
+    ],
+    blocks: []
+  },
   {
     name: "OoT Tracker",
     type: "personal",
@@ -102,14 +121,14 @@ export const projects = createProjects([
     ],
     blocks: []
   },
-  {
-    name: "Unannounced Game",
-    type: "personal",
-    description: "Release date, title, and most other things about this game TBA",
-    tools: ["Unity", "C#", "Cinema4D"],
-    skills: ['UI/UX Design', 'Front End Development'],
-    blocks: []
-  },
+  // {
+  //   name: "Unannounced Game",
+  //   type: "personal",
+  //   description: "Release date, title, and most other things about this game TBA",
+  //   tools: ["Unity", "C#", "Cinema4D"],
+  //   skills: ['UI/UX Design', 'Front End Development'],
+  //   blocks: []
+  // },
 ]);
 
 export const getProjectFromSlug = (slug: string) => projects.find(project => project.slug === slug);

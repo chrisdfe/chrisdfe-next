@@ -13,6 +13,7 @@ interface Props {
 }
 
 const Main = styled.main`
+padding: 0 3rem;
 `;
 
 export default function Layout({ children }: Props) {
